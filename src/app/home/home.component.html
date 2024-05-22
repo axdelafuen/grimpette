@@ -1,0 +1,27 @@
+<h1>Grimpette</h1>
+
+<p>Play online grimpette with your friends !</p>
+
+<h2>River</h2>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+    <div *ngFor="let card of game.river">
+        <img [src]='"../../assets/cards/"+card.getImageName()+".png"' height="200">
+    </div>    
+</div>
+
+<h2>Player1</h2>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+    <div *ngFor="let card of game.player1.hand">
+        <img [src]='"../../assets/cards/"+card.getImageName()+".png"' height="200">
+    </div>    
+</div>
+
+<h2>Player2</h2>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+    <div *ngFor="let card of game.player2.hand">
+        <img [src]='"../../assets/cards/"+card.getImageName()+".png"' height="200">
+    </div>   
+</div>
