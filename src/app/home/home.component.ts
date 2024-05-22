@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { Card } from '../model/Card';
-import { CardColor } from '../model/CardColor';
-import { CardValue } from '../model/CardValue';
+import { NgFor } from '@angular/common';
+import { Game } from '../model/Game';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    NgFor
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  //card = new Card(CardColor.Clubs, CardValue.Queen)
+  //init = new InitDeck()
+  
+  game = new Game()
 }

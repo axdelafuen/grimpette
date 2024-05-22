@@ -10,6 +10,7 @@ export enum CardValue {
     Nine = 9,
     Ten = 10,
     Jack = 11,
-    Queen = 12,
-    King = 13
+    Knight = 12,
+    Queen = 13,
+    King = 14
 }
