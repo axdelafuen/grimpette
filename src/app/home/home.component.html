@@ -1,27 +1,9 @@
-<h1>Grimpette</h1>
+<div style="display: flex; align-items: center;">
+    <button class="home-button" (click)="goToHome()" style="text-decoration: none; color: black;"><h1>Grimpette</h1></button>
+    <div style="display: flex; align-items: center; width: 100%; justify-content: space-evenly;">
+        <p>Play locally with your friends !</p>    
 
-<p>Play online grimpette with your friends !</p>
-
-<h2>River</h2>
-
-<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
-    <div *ngFor="let card of game.river">
-        <img [src]='"../../assets/cards/"+card.getImageName()+".png"' height="200">
+        <button type="button" (click)="goToGame();">Play now</button>    
+        <button type="button" (click)="goToDebug();">Debug page</button>    
     </div>    
-</div>
-
-<h2>Player1</h2>
-
-<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
-    <div *ngFor="let card of game.player1.hand">
-        <img [src]='"../../assets/cards/"+card.getImageName()+".png"' height="200">
-    </div>    
-</div>
-
-<h2>Player2</h2>
-
-<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
-    <div *ngFor="let card of game.player2.hand">
-        <img [src]='"../../assets/cards/"+card.getImageName()+".png"' height="200">
-    </div>   
 </div>

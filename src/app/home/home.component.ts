@@ -1,18 +1,28 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { Game } from '../model/Game';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    NgFor
-  ],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  //init = new InitDeck()
+
+  constructor(private router:Router){}
   
-  game = new Game()
+  goToHome() {
+    this.router.navigateByUrl('')
+  }
+
+  goToDebug() {
+    this.router.navigateByUrl('debug')
+  }
+
+  goToGame() {
+    this.router.navigateByUrl('game')
+  }
+
 }
+
