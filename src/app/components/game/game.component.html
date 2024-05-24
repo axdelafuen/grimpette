@@ -1,32 +1,32 @@
 <div class="board">
     <div class="sorted-decks">
-        <div cdkDropList #heartDeck="cdkDropList" [cdkDropListData]="game.heartDeck" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #heartDeck="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.heartDeck" (cdkDropListDropped)="drop($event)">
             <div *ngIf="game.heartDeck.length != 0; else elseBlock">
-                <img [src]='"../../assets/cards/"+game.heartDeck[game.heartDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+                <img [src]='"../../assets/cards/"+game.heartDeck[game.heartDeck.length-1].getImageName()+".png"' class="card">
             </div>
         </div>
 
-        <div cdkDropList #diamondsDeck="cdkDropList" [cdkDropListData]="game.diamondsDeck" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #diamondsDeck="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.diamondsDeck" (cdkDropListDropped)="drop($event)">
             <div *ngIf="game.diamondsDeck.length != 0; else elseBlock">
-                <img [src]='"../../assets/cards/"+game.diamondsDeck[game.diamondsDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+                <img [src]='"../../assets/cards/"+game.diamondsDeck[game.diamondsDeck.length-1].getImageName()+".png"' class="card">
             </div>
         </div>
 
-        <div cdkDropList #clubsDeck="cdkDropList" [cdkDropListData]="game.clubsDeck" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #clubsDeck="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.clubsDeck" (cdkDropListDropped)="drop($event)">
             <div *ngIf="game.clubsDeck.length != 0; else elseBlock">
-                <img [src]='"../../assets/cards/"+game.clubsDeck[game.clubsDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+                <img [src]='"../../assets/cards/"+game.clubsDeck[game.clubsDeck.length-1].getImageName()+".png"' class="card">
             </div>
         </div>
 
-        <div cdkDropList #spadesDeck="cdkDropList" [cdkDropListData]="game.spadesDeck" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #spadesDeck="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.spadesDeck" (cdkDropListDropped)="drop($event)">
             <div *ngIf="game.spadesDeck.length != 0; else elseBlock">
-                <img [src]='"../../assets/cards/"+game.spadesDeck[game.spadesDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+                <img [src]='"../../assets/cards/"+game.spadesDeck[game.spadesDeck.length-1].getImageName()+".png"' class="card">
             </div>
         </div>
 
-        <div cdkDropList #trumpsDeck="cdkDropList" [cdkDropListData]="game.trumpsDeck" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #trumpsDeck="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.trumpsDeck" (cdkDropListDropped)="drop($event)">
             <div *ngIf="game.trumpsDeck.length != 0; else elseBlock">
-                <img [src]='"../../assets/cards/"+game.trumpsDeck[game.trumpsDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+                <img [src]='"../../assets/cards/"+game.trumpsDeck[game.trumpsDeck.length-1].getImageName()+".png"' class="card">
             </div>
         </div>
 
@@ -37,20 +37,42 @@
 
     <hr class="dashed">
 
-    <div cdkDropList #river="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.river" class="river" (cdkDropListDropped)="drop($event)">
-        @for (card of game.river; track card) {
-            <img [src]='"../../assets/cards/"+card.getImageName()+".png"' class="card playable-card" cdkDrag>
-        }
-    </div>
+    <div class="river">
+        <div cdkDropList #river_0="cdkDropList" [cdkDropListData]="game.river[0]" class="river" (cdkDropListDropped)="drop($event)">
+            @for(cards of game.river[0]; track cards){
+                <img [src]='"../../assets/cards/"+cards.getImageName()+".png"' class="card playable-card" cdkDrag>
+            }
+        </div>
 
+        <div cdkDropList #river_1="cdkDropList" [cdkDropListData]="game.river[1]" class="river" (cdkDropListDropped)="drop($event)">
+            <img [src]='"../../assets/cards/"+game.river[1][0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>
+
+        <div cdkDropList #river_2="cdkDropList" [cdkDropListData]="game.river[2]" class="river" (cdkDropListDropped)="drop($event)">
+            <img [src]='"../../assets/cards/"+game.river[2][0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>
+
+        <div cdkDropList #river_3="cdkDropList" [cdkDropListData]="game.river[3]" class="river" (cdkDropListDropped)="drop($event)">
+            <img [src]='"../../assets/cards/"+game.river[3][0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>
+
+        <div cdkDropList #river_4="cdkDropList" [cdkDropListData]="game.river[4]" class="river" (cdkDropListDropped)="drop($event)">
+            <img [src]='"../../assets/cards/"+game.river[4][0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>
+
+        <div cdkDropList #river_5="cdkDropList" [cdkDropListData]="game.river[5]" class="river" (cdkDropListDropped)="drop($event)">
+            <img [src]='"../../assets/cards/"+game.river[5][0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>
+    </div>
+    
     <hr class="dashed">
 
     <div class="player-zone">
-        <div cdkDropList #player1="cdkDropList" [cdkDropListData]="game.player1.hand" [cdkDropListConnectedTo]="[river]" class="player1" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #player1="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.player1.hand" [cdkDropListConnectedTo]="[river_0, river_1, river_2, river_3, river_4, river_5, heartDeck, diamondsDeck, spadesDeck, clubsDeck, trumpsDeck]" class="player1" (cdkDropListDropped)="drop($event)">
             <h3>Player1:</h3>
             <img [src]='"../../assets/cards/"+game.player1.hand[0].getImageName()+".png"' class="card playable-card" cdkDrag>
         </div>
-        <div cdkDropList #player1="cdkDropList" [cdkDropListData]="game.player2.hand" [cdkDropListConnectedTo]="[river]" class="player2" (cdkDropListDropped)="drop($event)">
+        <div cdkDropList #player1="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.player2.hand" [cdkDropListConnectedTo]="[river_0, river_1, river_2, river_3, river_4, river_5, heartDeck, diamondsDeck, spadesDeck, clubsDeck, trumpsDeck]" class="player2" (cdkDropListDropped)="drop($event)">
             <h3>Player2:</h3>
             <img [src]='"../../assets/cards/"+game.player2.hand[0].getImageName()+".png"' class="card playable-card" cdkDrag>
         </div>    

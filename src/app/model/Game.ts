@@ -1,15 +1,17 @@
+import { cpSync } from "fs";
 import { Card } from "./Card";
 import { HumanPlayer } from "./HumanPlayer";
 import { IPlayer } from "./IPlayer";
 import { InitDeck } from "./InitDeck";
 import { TrumpCard } from "./TrumpCard";
+import { ArrayDataSource } from "@angular/cdk/collections";
 
 export class Game{
 
     private cards: Array<Card | TrumpCard>
     private _player1: IPlayer
     private _player2: IPlayer
-    private _river: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
+    private _river: Array<Array<Card | TrumpCard>> = new Array(6)
     private _heartDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
     private _diamondsDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
     private _spadesDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
@@ -21,9 +23,10 @@ export class Game{
         this.shuffleDeck()
 
         for (let i = 0; i < 6; i++) {
-            const randIndex = Math.floor(Math.random() * this._river.length);
+            const randIndex = Math.floor(Math.random() * this.cards.length);
             const val = this.cards.splice(randIndex, 1)[0];
-            this._river.push(val);
+            this._river[i] = new Array<Card | TrumpCard>
+            this._river[i].push(val)
         }
 
         this._player1 = new HumanPlayer("Player 1", "", this.cards.slice(0, Math.ceil(this.cards.length/2)))
