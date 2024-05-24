@@ -1,0 +1,33 @@
+.board{
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: groove;
+}
+
+hr.dashed {
+    border: 2px dashed #bbb;
+}
+
+.sorted-decks{
+    display: flex;
+    justify-content: space-around;
+}
+
+.river{
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.card{
+    height: 130px;
+}
+.playable-card{
+    cursor: move;
+}
+
+.player-zone{
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,1 +1,58 @@
-<h1>Game</h1>
+<div class="board">
+    <div class="sorted-decks">
+        <div cdkDropList #heartDeck="cdkDropList" [cdkDropListData]="game.heartDeck" (cdkDropListDropped)="drop($event)">
+            <div *ngIf="game.heartDeck.length != 0; else elseBlock">
+                <img [src]='"../../assets/cards/"+game.heartDeck[game.heartDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+            </div>
+        </div>
+
+        <div cdkDropList #diamondsDeck="cdkDropList" [cdkDropListData]="game.diamondsDeck" (cdkDropListDropped)="drop($event)">
+            <div *ngIf="game.diamondsDeck.length != 0; else elseBlock">
+                <img [src]='"../../assets/cards/"+game.diamondsDeck[game.diamondsDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+            </div>
+        </div>
+
+        <div cdkDropList #clubsDeck="cdkDropList" [cdkDropListData]="game.clubsDeck" (cdkDropListDropped)="drop($event)">
+            <div *ngIf="game.clubsDeck.length != 0; else elseBlock">
+                <img [src]='"../../assets/cards/"+game.clubsDeck[game.clubsDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+            </div>
+        </div>
+
+        <div cdkDropList #spadesDeck="cdkDropList" [cdkDropListData]="game.spadesDeck" (cdkDropListDropped)="drop($event)">
+            <div *ngIf="game.spadesDeck.length != 0; else elseBlock">
+                <img [src]='"../../assets/cards/"+game.spadesDeck[game.spadesDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+            </div>
+        </div>
+
+        <div cdkDropList #trumpsDeck="cdkDropList" [cdkDropListData]="game.trumpsDeck" (cdkDropListDropped)="drop($event)">
+            <div *ngIf="game.trumpsDeck.length != 0; else elseBlock">
+                <img [src]='"../../assets/cards/"+game.trumpsDeck[game.trumpsDeck.length-1].getImageName()+".png"' class="card" cdkDrag>
+            </div>
+        </div>
+
+        <ng-template #elseBlock>
+            <img [src]='"../../assets/cards/back.png"' class="card">
+        </ng-template>
+    </div>
+
+    <hr class="dashed">
+
+    <div cdkDropList #river="cdkDropList" cdkDropListOrientation="horizontal" [cdkDropListData]="game.river" class="river" (cdkDropListDropped)="drop($event)">
+        @for (card of game.river; track card) {
+            <img [src]='"../../assets/cards/"+card.getImageName()+".png"' class="card playable-card" cdkDrag>
+        }
+    </div>
+
+    <hr class="dashed">
+
+    <div class="player-zone">
+        <div cdkDropList #player1="cdkDropList" [cdkDropListData]="game.player1.hand" [cdkDropListConnectedTo]="[river]" class="player1" (cdkDropListDropped)="drop($event)">
+            <h3>Player1:</h3>
+            <img [src]='"../../assets/cards/"+game.player1.hand[0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>
+        <div cdkDropList #player1="cdkDropList" [cdkDropListData]="game.player2.hand" [cdkDropListConnectedTo]="[river]" class="player2" (cdkDropListDropped)="drop($event)">
+            <h3>Player2:</h3>
+            <img [src]='"../../assets/cards/"+game.player2.hand[0].getImageName()+".png"' class="card playable-card" cdkDrag>
+        </div>    
+    </div>
+</div>

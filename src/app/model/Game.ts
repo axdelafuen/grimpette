@@ -10,6 +10,11 @@ export class Game{
     private _player1: IPlayer
     private _player2: IPlayer
     private _river: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
+    private _heartDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
+    private _diamondsDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
+    private _spadesDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
+    private _clubsDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
+    private _trumpsDeck: Array<Card | TrumpCard> = new Array<Card | TrumpCard>
 
     constructor(){
         this.cards = new InitDeck().getDeck()
@@ -46,5 +51,25 @@ export class Game{
 
     get player2(){
         return this._player2
+    }
+
+    get heartDeck(){
+        return this._heartDeck
+    }
+
+    get diamondsDeck(){
+        return this._diamondsDeck
+    }
+
+    get clubsDeck(){
+        return this._clubsDeck
+    }
+
+    get spadesDeck(){
+        return this._spadesDeck
+    }
+
+    get trumpsDeck(){
+        return this._trumpsDeck
     }
 }

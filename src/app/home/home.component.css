@@ -8,3 +8,26 @@
 	outline: inherit;
 	width: fit-content;
 }
+
+.play-button{
+	text-decoration: none;
+	font: inherit;
+	text-align: center;
+	border: none;
+	display: block;
+	padding: 0.8rem;
+	border-radius: 1.5rem;
+	background-color: #f6e58d;
+	color: #000;
+	transition: all .2s ease 0s; 
+	box-shadow: 0 5px #f9ca24;
+}
+
+.play-button:hover{
+	cursor: pointer;
+}
+
+.play-button:active {
+	box-shadow: 0 0px #f0932b;
+	transform: translateY(5px);
+  }
